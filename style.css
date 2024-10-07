@@ -1,0 +1,99 @@
+/* Fondo general del cuerpo */
+body {
+    font-family: 'Poppins', sans-serif; /* Fuente más suave y moderna */
+    text-align: center;
+    background-color: #fef4e8; /* Color pastel suave */
+    margin: 0;
+    padding: 0;
+}
+
+/* Título más grande y decorado */
+.cute-title {
+    font-size: 3em;
+    color: #ff6f61; /* Color más alegre */
+    margin-top: 10px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para el HUB */
+#hub {
+    display: flex;
+    justify-content: space-around;
+    background-color: #ffebcd; /* Fondo pastel */
+    color: #4d4d4d;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+/* Puntaje y temporizador */
+#score-container, #timer-container, #high-scores {
+    background-color: #ffe4e1;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+#score {
+    font-weight: bold;
+    color: #ff6347; /* Color vibrante */
+}
+
+#timer {
+    font-weight: bold;
+    color: #ff4500; /* Naranja para temporizador */
+}
+
+/* Contenedor de juego */
+#game-container {
+    width: 80%;
+    height: 500px;
+    margin: 0 auto;
+    position: relative;
+    border: 2px solid #d4a373;
+    background-color: #fffbe6; /* Fondo más suave y claro */
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Hormigas */
+.ant {
+    position: absolute;
+    cursor: pointer;
+    width: 50px; /* Ajustar el tamaño del GIF */
+    height: 50px;
+}
+
+/* Efecto de splash */
+.splash {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: green; /* Color de la salpicadura */
+    border-radius: 50%; /* Circular */
+    opacity: 0.8;
+    animation: splashEffect 0.5s ease-out;
+}
+
+/* Animación del splash */
+@keyframes splashEffect {
+    0% {
+        transform: scale(0.5);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* Estilo para mejores puntajes */
+#high-scores h2 {
+    color: #ff6f61;
+    font-size: 1.8em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
