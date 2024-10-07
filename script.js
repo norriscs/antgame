@@ -123,7 +123,7 @@ function createAnt() {
 function startGame() {
     score = 0;
     scoreDisplay.textContent = score;
-    timeLeft = 3;
+    timeLeft = 20;
     timerDisplay.textContent = timeLeft;
 
     // Crear hormigas cada 0.5 segundos
