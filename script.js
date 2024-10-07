@@ -82,6 +82,22 @@ function createAnt() {
         // Reproducir sonido al aplastar
         const splatSound = new Audio('./golpe.wav');
         splatSound.play();
+        
+        // Mostrar un puntaje animado temporal
+        const scorePopup = document.createElement("div");
+        scorePopup.textContent = "+5";
+        scorePopup.style.position = "absolute";
+        scorePopup.style.left = ant.style.left;
+        scorePopup.style.top = ant.style.top;
+        scorePopup.style.color = "#00ff00"; // Color verde llamativo
+        scorePopup.style.fontSize = "20px";
+        gameContainer.appendChild(scorePopup);
+
+        // Hacer desaparecer el puntaje después de 0.5 segundos
+    setTimeout(() => {
+        scorePopup.remove();
+    }, 500);
+    
 
         ant.remove(); // Eliminar la hormiga
 
@@ -134,9 +150,30 @@ function startGame() {
 function endGame() {
     clearInterval(gameInterval); // Detener el temporizador
     clearInterval(antInterval); // Detener la creación de hormigas
-    saveHighScore(); // Guardar el puntaje actual
-    showHighScores(); // Mostrar la tabla de mejores puntajes
-    setTimeout(startGame, 3000); // Reiniciar el juego después de 3 segundos
+
+    // Mostrar un mensaje de "Game Over"
+    const gameOverMessage = document.createElement("div");
+    gameOverMessage.textContent = "¡Tiempo agotado!";
+    gameOverMessage.style.fontSize = "50px";
+    gameOverMessage.style.color = "#ff4500";
+    gameOverMessage.style.position = "absolute";
+    gameOverMessage.style.left = "50%";
+    gameOverMessage.style.top = "50%";
+    gameOverMessage.style.transform = "translate(-50%, -50%)";
+    gameContainer.appendChild(gameOverMessage);
+
+    // Hacer que parpadee el mensaje de Game Over
+    setInterval(() => {
+        gameOverMessage.style.opacity = gameOverMessage.style.opacity === '0' ? '1' : '0';
+    }, 500);
+
+    // Guardar puntaje y reiniciar después de unos segundos
+    saveHighScore();
+    showHighScores();
+    setTimeout(() => {
+        gameOverMessage.remove(); // Quitar el mensaje
+        startGame();
+    }, 3000); // Reiniciar el juego después de 3 segundos
 }
 
 // Función para guardar el puntaje en la lista de mejores puntajes
